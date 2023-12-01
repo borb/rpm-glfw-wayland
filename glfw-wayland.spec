@@ -7,8 +7,9 @@
     print(release_number + base_release_number - 1);
 }%{?-e:.%{-e*}}%{?-s:.%{-s*}}%{!?-n:%{?dist}}
 ## END: Set by rpmautospec
+%define rawname glfw
 
-Name:           glfw-wayland
+Name:           %{rawname}-wayland
 Version:        3.3.8
 Release:        %autorelease
 Epoch:          1
@@ -16,10 +17,10 @@ Summary:        A cross-platform multimedia library
 Summary(fr):    Une bibliothèque multimédia multi-plateforme
 License:        Zlib
 URL:            http://www.glfw.org/index.html
-Source0:        https://github.com/glfw/glfw/archive/%{version}/%{name}-%{version}.tar.gz
+Source0:        https://github.com/glfw/glfw/archive/%{version}/%{rawname}-%{version}.tar.gz
 
-Provides:       glfw = %{version}
-Conflicts:      glfw
+Provides:       %{rawname} = %{version}
+Conflicts:      %{rawname}
 
 BuildRequires:  gcc
 BuildRequires:  cmake
@@ -55,8 +56,8 @@ entrée du temps, les discussions de créer, et plus encore.
 %package        devel
 Summary:        Development files for %{name}
 Summary(fr):    Appui pour le développement d'application C
-Provides:       glfw-devel = %{version}
-Conflicts:      glfw-devel
+Provides:       %{rawname}-devel = %{version}
+Conflicts:      %{rawname}-devel
 Requires:       %{name}%{?_isa} = %{epoch}:%{version}-%{release}
 Requires:       pkgconfig(dri)
 Requires:       pkgconfig(glu)
@@ -77,8 +78,8 @@ des applications utilisant glfw.
 
 %package        doc
 Summary:        Documentation for %{name}
-Provides:       glfw-doc = %{version}
-Conflicts:      glfw-doc
+Provides:       %{rawname}-doc = %{version}
+Conflicts:      %{rawname}-doc
 BuildArch:      noarch
 
 %description doc
