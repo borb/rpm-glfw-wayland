@@ -18,6 +18,7 @@ Summary(fr):    Une bibliothèque multimédia multi-plateforme
 License:        Zlib
 URL:            http://www.glfw.org/index.html
 Source0:        https://github.com/glfw/glfw/archive/%{version}/%{rawname}-%{version}.tar.gz
+Patch0:         https://raw.githubusercontent.com/Admicos/minecraft-wayland/f1848246d177e17293198b58d1bca67acdfb9fb1/0003-Don-t-crash-on-calls-to-focus-or-icon.patch
 
 Provides:       %{rawname} = %{version}
 Conflicts:      %{rawname}
@@ -113,6 +114,9 @@ find . -type f | xargs sed -i 's/\r//'
 %doc %{_vpath_builddir}/docs/html/*
 
 %changelog
+* Fri Dec 01 2023 just nine <nine@aphlor.org> - 1:3.3.8-4.1
+- Add patch to prevent two warnings becoming fatal (from Admicos on github)
+
 * Fri Dec 01 2023 just nine <nine@aphlor.org> - 1:3.3.8-4
 - Add Wayland build flag to cmake
 
@@ -335,4 +339,3 @@ find . -type f | xargs sed -i 's/\r//'
 
 * Wed Apr 18 2012 Jonathan MERCIER <bioinfornatics at gmail.com> - 3.0.0-1
 - Initial release
-
