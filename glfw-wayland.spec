@@ -88,7 +88,7 @@ with %{name}.
 
 
 %prep
-%setup -q
+%setup -q -n %{rawname}-%{version}
 find . -type f | xargs sed -i 's/\r//'
 
 %build
